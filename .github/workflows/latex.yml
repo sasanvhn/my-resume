@@ -18,18 +18,18 @@ jobs:
       uses: xu-cheng/latex-action@v2
       with:
         root_file: resume.tex
-        latexmk_use_xelatex: true
+        latexmk_use_xelatex: true 
 
     - name: Upload PDF as Artifact
       uses: actions/upload-artifact@v3
       with:
         name: compiled-resume
-        path: SasanVahidiniaResume.pdf
+        path: resume.pdf
 
     - name: Commit & Push the PDF
       run: |
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
-        git add SasanVahidiniaResume.pdf
+        git add resume.pdf
         git commit -m "Auto-update PDF from LaTeX"
         git push
